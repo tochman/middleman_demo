@@ -1,0 +1,19 @@
+%h1 My Favorite Sites
+
+- data.sites.each do |site|
+  %h1
+    %a{href: "#{site.url}"}
+      = site.title
+
+
+%h4
+  Created at:
+  = display_date
+
+
+%h4 Fantastic CA Curriculum
+- scrape_ca_content.each do |week|
+  %h5= week[:header]
+  %p
+    %strong= week[:sub_header]
+  %p= week[:body]
