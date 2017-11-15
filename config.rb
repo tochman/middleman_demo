@@ -31,30 +31,11 @@ page '/*.txt', layout: false
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
 
+require 'lib/ca_content'
+helpers CaContentHelper
 helpers do
   def display_date
     DateTime.now.strftime('%Y-%m-%d %H:%M')
-  end
-
-  def scrape_ca_content
-    require 'open-uri'
-    require 'nokogiri'
-    require 'mechanize'
-
-    site_url = 'https://www.craftacademy.se/english/curriculum/'
-    agent = Mechanize.new
-    page = agent.get(site_url)
-    weeks = page.search('.category')
-    content = []
-    weeks.each do |week|
-      hash = {
-          header: week.search('h4').text,
-          sub_header: week.search('dt').text,
-          body: week.search('dd p').text
-      }
-      content.push(hash)
-    end
-    content
   end
 end
 
