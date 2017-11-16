@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'mechanize'
 
-module CaContentHelper
+module ContentHelper
   def scrape_curriculum
     site_url = 'https://www.craftacademy.se/english/curriculum/'
     agent = Mechanize.new

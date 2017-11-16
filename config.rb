@@ -31,8 +31,8 @@ page '/*.txt', layout: false
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
 
-require 'lib/ca_content'
-helpers CaContentHelper
+require 'lib/content_helper'
+helpers ContentHelper
 helpers do
   def display_date
     DateTime.now.strftime('%Y-%m-%d %H:%M')
